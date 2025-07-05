@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff8e1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ladoo {
+  width: 120px;
+  height: 120px;
+  background-image: url('https://i.imgur.com/ukzAJJd.png'); /* Replace with your ladoo image */
+  background-size: cover;
+  background-position: center;
+  animation: zoomIn 3s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+
+.text {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #5d4037;
+}
