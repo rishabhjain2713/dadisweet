@@ -2,61 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ordering Ladoos...</title>
+  <title>Dadi’s Ladoo Coming Soon...</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background: #fff8e1;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      background-color: black;
+    }
+    .video-container {
+      width: 100vw;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .overlay-text {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
       font-family: 'Segoe UI', sans-serif;
-    }
-
-    .ladoo {
-      width: 120px;
-      height: 120px;
-      background-image: url('https://i.imgur.com/ukzAJJd.png'); /* Sample ladoo image (transparent PNG) */
-      background-size: cover;
-      background-position: center;
-      animation: zoomIn 3s ease-in-out forwards;
-    }
-
-    @keyframes zoomIn {
-      0% {
-        transform: scale(1) translateZ(0);
-        opacity: 0.3;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: scale(6); /* Zooms towards the screen */
-        opacity: 0;
-      }
-    }
-
-    .text {
-      font-size: 20px;
-      margin-top: 20px;
-      color: #5d4037;
     }
   </style>
 </head>
 <body>
 
-  <div class="ladoo"></div>
-  <div class="text">Dadi is preparing your Besan Ladoo...</div>
+  <div class="video-container">
+    <video id="ladooVideo" autoplay muted playsinline>
+      <source src="Hailuo_Video_Create a Animation from this B_397854018265821188.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay-text">Preparing your Besan Ladoo...</div>
+  </div>
 
   <script>
-    // Redirect after 3 seconds
+    const video = document.getElementById('ladooVideo');
+
+    // Redirect after video ends
+    video.addEventListener('ended', function () {
+      window.location.href = "https://wa.me/919999999999?text=Hi%20Dadi%2C%20I%20want%20to%20order%20Besan%20Ladoos!";
+    });
+
+    // Fallback: if video fails, redirect after 5 seconds
     setTimeout(function () {
-      window.location.href = "https://wa.me/919999999999?text=Hi%20Dadi%2C%20I%20want%20to%20order%20Besan%20Ladoos!"; // Replace with your WhatsApp number
-    }, 3000);
+      if (video.paused) {
+        window.location.href = "https://wa.me/919999999999?text=Hi%20Dadi%2C%20I%20want%20to%20order%20Besan%20Ladoos!";
+      }
+    }, 5000);
   </script>
 
 </body>
